@@ -6,21 +6,22 @@ int shared_i = 0;
 
 void increase_num(void);
 
-pthread_mutex_t mutex;
+//pthread_mutex_t mutex;
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
 int main(){
     pthread_t thrd1, thrd2, thrd3;
 
-    pthread_mutex_init(&mutex, NULL);
+    //pthread_mutex_init(&mutex, NULL);
 
-    if (0 == pthread_create(&thrd1, NULL, (void *)increase_num, NULL)){
+    if (0 == pthread_create(&thrd1, NULL, (void *)&increase_num, NULL)){
         printf("Create thrd1 success!\n");
     };
-    if (0 == pthread_create(&thrd2, NULL, (void *)increase_num, NULL)){
-        printf("Create thrd1 success!\n");
+    if (0 == pthread_create(&thrd2, NULL, (void *)&increase_num, NULL)){
+        printf("Create thrd2 success!\n");
     };
-    if (0 == pthread_create(&thrd1, NULL, (void *)increase_num, NULL)){
-        printf("Create thrd1 success!\n");
+    if (0 == pthread_create(&thrd3, NULL, (void *)&increase_num, NULL)){
+        printf("Create thrd3 success!\n");
     };
 
     pthread_join(thrd1, NULL);
@@ -51,7 +52,7 @@ void increase_num(void){
     }
 }
 
-/*
+/**
 Running result:
     shared_i = 300000.
 */

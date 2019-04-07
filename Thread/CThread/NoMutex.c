@@ -7,13 +7,13 @@ void increase_num(void);
 
 int main(){
     pthread_t thrd1, thrd2, thrd3;
-    if (0 == pthread_create(&thrd1, NULL, (void *)increase_num, NULL)){
+    if (0 == pthread_create(&thrd1, NULL, (void *)&increase_num, NULL)){
         printf("Create thrd1 success!\n");
     }
-    if (0 == pthread_create(&thrd2, NULL, (void *)increase_num, NULL)){
+    if (0 == pthread_create(&thrd2, NULL, (void *)&increase_num, NULL)){
         printf("Create thrd2 success!\n");
     }
-    if (0 == pthread_create(&thrd1, NULL, (void *)increase_num, NULL)){
+    if (0 == pthread_create(&thrd3, NULL, (void *)&increase_num, NULL)){
         printf("Create thrd3 success!\n");
     }
     pthread_join(thrd1, NULL);
