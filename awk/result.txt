@@ -1,0 +1,16 @@
+lines1: $1=hello $2=world $2>400?1
+lines2: $1=hel/lowor//ld $2= $2>400?0
+lines3: $1=hello $2= $2>400?0
+lines4: $1=w $2= $2>400?0
+lines5: $1=http://youku.com $2=200 $2>400?0
+lines6: $1=http://youku.com $2=302 $2>400?0
+lines7: $1=http://youku.com $2=403 $2>400?1
+lines8: $1=http://youku.com $2=502 $2>400?1
+lines9: $1=http://baidu.com $2=302 $2>400?0
+lines10: $1=http://baidu.com $2=404 $2>400?1
+total lines = 10
+hello 2 0.5
+http://youku.com 4 0.5
+w 1 0
+http://baidu.com 2 0.5
+hel/lowor//ld 1 0
